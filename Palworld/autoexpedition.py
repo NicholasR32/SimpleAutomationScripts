@@ -28,6 +28,15 @@ expedition6 = (0.38*X,0.8*Y) # Spirit Blossom Cave of Sakurajima
 #         the pal assigning window when opened. The extra click shouldn't matter.
 expeditions_completed = 0
 print('Script started')
+in_progress = input("Is an expedition already in progress? [Y/N]")
+if in_progress in ['Y','y']:
+    time_to_wait = int(input("How much longer, in minutes? Round up to nearest minute."))
+    time.sleep(time_to_wait*60+10)
+    expeditions_completed += 1
+    print('Expedition done!')
+    # TODO: claim expedition here
+    print('Now entering full AFK expedition loop.')
+    
 while True:
     print('Waiting 3 seconds for window focus...')
     time.sleep(3)
